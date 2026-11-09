@@ -50,9 +50,10 @@ Ignore `/out/` in version control. Update callers, scripts, and documentation
 when an output path changes.
 
 ## Formatting
-Fully {} every statement (also single expressions of an if/while block).
+Fully wrap every expression with {} (also single expressions of an if/while block).
 Use UFCS when possible.
-Format code with dub run dfmt -- -i source (no options).
+Sort imports with `dub run importsort-d -- --inplace --recursive --ignore-case source`.
+Format code with `dub run dfmt -- -i source`.
 
 ## Tests: unit-threaded
 
