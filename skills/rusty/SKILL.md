@@ -1,6 +1,6 @@
 ---
 name: rusty
-description: Run every cargo command with CARGO_TERM_QUIET=true so its output stays short. Use whenever you run cargo (build, check, test, clippy, run, fmt, doc, ...) in a Rust project.
+description: Run every cargo command with CARGO_TERM_QUIET=true so its output stays short. Use before running any cargo command (build, check, test, clippy, run, fmt, doc, ...), also when cargo is one line inside a larger shell command, in a scratch project, or behind a wrapper such as rtk.
 ---
 
 # Rusty
@@ -24,6 +24,16 @@ Good:
 env CARGO_TERM_QUIET=true cargo build
 env CARGO_TERM_QUIET=true cargo test --workspace
 ```
+
+## With a command wrapper
+
+When the instructions also ask for a wrapper such as `rtk`, use both. The variable goes first:
+
+```sh
+env CARGO_TERM_QUIET=true rtk cargo build
+```
+
+The wrapper shortens cargo's output but still prints its own summary and the `Finished` line. Quiet mode removes those too.
 
 ## Scope
 
